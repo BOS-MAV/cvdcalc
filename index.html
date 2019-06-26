@@ -1,169 +1,87 @@
 <!doctype html>
-
 <html lang="en">
-
 <head>
-
   <meta charset="utf-8">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>jQuery UI Slider - Colorpicker</title>
-
+  <title>jQuery UI Controlgroup - Default Functionality</title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
   <link rel="stylesheet" href="/resources/demos/style.css">
-
   <style>
-
-  #red, #green, #blue {
-
-    float: left;
-
-    clear: left;
-
-    width: 300px;
-
-    margin: 15px;
-
-  }
-
-  #swatch {
-
-    width: 120px;
-
-    height: 100px;
-
-    margin-top: 18px;
-
-    margin-left: 350px;
-
-    background-image: none;
-
-  }
-
-  #red .ui-slider-range { background: #ef2929; }
-
-  #red .ui-slider-handle { border-color: #ef2929; }
-
-  #green .ui-slider-range { background: #8ae234; }
-
-  #green .ui-slider-handle { border-color: #8ae234; }
-
-  #blue .ui-slider-range { background: #729fcf; }
-
-  #blue .ui-slider-handle { border-color: #729fcf; }
-
+    .ui-controlgroup-vertical {
+      width: 150px;
+    }
+    .ui-controlgroup.ui-controlgroup-vertical > button.ui-button,
+    .ui-controlgroup.ui-controlgroup-vertical > .ui-controlgroup-label {
+      text-align: center;
+    }
+    #car-type-button {
+      width: 120px;
+    }
+    .ui-controlgroup-horizontal .ui-spinner-input {
+      width: 20px;
+    }
   </style>
-
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
   <script>
-
   $( function() {
-
-    function hexFromRGB(r, g, b) {
-
-      var hex = [
-
-        r.toString( 16 ),
-
-        g.toString( 16 ),
-
-        b.toString( 16 )
-
-      ];
-
-      $.each( hex, function( nr, val ) {
-
-        if ( val.length === 1 ) {
-
-          hex[ nr ] = "0" + val;
-
-        }
-
-      });
-
-      return hex.join( "" ).toUpperCase();
-
-    }
-
-    function refreshSwatch() {
-
-      var red = $( "#red" ).slider( "value" ),
-
-        green = $( "#green" ).slider( "value" ),
-
-        blue = $( "#blue" ).slider( "value" ),
-
-        hex = hexFromRGB( red, green, blue );
-
-      $( "#swatch" ).css( "background-color", "#" + hex );
-
-    }
-
- 
-
-    $( "#red, #green, #blue" ).slider({
-
-      orientation: "horizontal",
-
-      range: "min",
-
-      max: 255,
-
-      value: 127,
-
-      slide: refreshSwatch,
-
-      change: refreshSwatch
-
+    $( ".controlgroup" ).controlgroup()
+    $( ".controlgroup-vertical" ).controlgroup({
+      "direction": "vertical"
     });
-
-    $( "#red" ).slider( "value", 255 );
-
-    $( "#green" ).slider( "value", 140 );
-
-    $( "#blue" ).slider( "value", 60 );
-
   } );
-
   </script>
-
 </head>
-
-<body class="ui-widget-content" style="border:0;">
-
+<body>
+<div class="widget">
+  <h1>Controlgroup</h1>
+  <fieldset>
+    <legend>Rental Car</legend>
+    <div class="controlgroup">
+      <select id="car-type">
+        <option>Compact car</option>
+        <option>Midsize car</option>
+        <option>Full size car</option>
+        <option>SUV</option>
+        <option>Luxury</option>
+        <option>Truck</option>
+        <option>Van</option>
+      </select>
+      <label for="transmission-standard">Standard</label>
+      <input type="radio" name="transmission" id="transmission-standard">
+      <label for="transmission-automatic">Automatic</label>
+      <input type="radio" name="transmission" id="transmission-automatic">
+      <label for="insurance">Insurance</label>
+      <input type="checkbox" name="insurance" id="insurance">
+      <label for="horizontal-spinner" class="ui-controlgroup-label"># of cars</label>
+      <input id="horizontal-spinner" class="ui-spinner-input">
+      <button>Book Now!</button>
+    </div>
+  </fieldset>
+  <br>
+  <fieldset>
+    <legend>Rental Car</legend>
+    <div class="controlgroup-vertical">
+      <select>
+        <option>Compact car</option>
+        <option>Midsize car</option>
+        <option>Full size car</option>
+        <option>SUV</option>
+        <option>Luxury</option>
+        <option>Truck</option>
+        <option>Van</option>
+      </select>
+      <label for="transmission-standard-v">Standard</label>
+      <input type="radio" name="transmission-v" id="transmission-standard-v">
+      <label for="transmission-automatic-v">Automatic</label>
+      <input type="radio" name="transmission-v" id="transmission-automatic-v">
+      <label for="insurance-v">Insurance</label>
+      <input type="checkbox" name="insurance" id="insurance-v">
+      <label for="vertical-spinner" class="ui-controlgroup-label"># of cars</label>
+      <input id="vertical-spinner" class="ui-spinner-input">
+      <button id="book">Book Now!</button>
+    </div>
+  </fieldset>
+</div>
  
-
-<p class="ui-state-default ui-corner-all ui-helper-clearfix" style="padding:4px;">
-
-  <span class="ui-icon ui-icon-pencil" style="float:left; margin:-2px 5px 0 0;"></span>
-
-  Simple Colorpicker
-
-</p>
-
- 
-
-<div id="red"></div>
-
-<div id="green"></div>
-
-<div id="blue"></div>
-
- 
-
-<div id="swatch" class="ui-widget-content ui-corner-all"></div>
-
- 
-
- 
-
 </body>
-
 </html>
-
-
