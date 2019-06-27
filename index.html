@@ -2,6 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <link rel="shortcut icon" href="favicon.ico">
+  <!-- jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <title>CVD Risk Calculator</title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <style>
@@ -19,8 +25,7 @@
       width: 20px;
     }
   </style>
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
   <script>
   $( function() {
     $( ".controlgroup" ).controlgroup()
@@ -28,30 +33,30 @@
       "direction": "vertical"
     });
   } );
+  // get selection
+$('.colors input[type=radio]').on('change', function() {
+    console.log(this.value);
+});
   </script>
 </head>
 <body>
-<div class="widget">
+ <div class="jumbotron">
   <h1>CVD Risk Calculator</h1>
-  <fieldset>
+   <div class="well well-sm">
     <legend>Demographic Information</legend>
     <div class="controlgroup">
      <label>Current Age</label>
      <input type = "text"/>
-     <label for="sex-male">Male</label>
-      <input type="radio" name="sex" id="sex-male">
-      <label for="sex-female">Female</label>
-      <input type="radio" name="sex" id="sex-female">
-      <label for="Race">Race</label>
-      <label for="transmission-standard">Standard</label>
-      <input type="radio" name="transmission" id="transmission-standard">
-      <label for="transmission-automatic">Automatic</label>
-      <input type="radio" name="transmission" id="transmission-automatic">
-      <label for="insurance">Insurance</label>
-      <input type="checkbox" name="insurance" id="insurance">
-      <label for="horizontal-spinner" class="ui-controlgroup-label"># of cars</label>
-      <input id="horizontal-spinner" class="ui-spinner-input">
-      <button>Book Now!</button>
+<div class="btn-group colors" data-toggle="buttons" >
+  <label class="btn btn-primary active"> 
+    <input type="radio" name="Sex" value="Male" autocomplete="off" checked> Male
+  </label>
+  <label class="btn btn-primary">
+    <input type="radio" name="Sex" value="Female" autocomplete="off"> Female
+  </label>
+
+</div>
+    </div>
     </div>
   </fieldset>
   <br>
@@ -78,7 +83,7 @@
       <button id="book">Book Now!</button>
     </div>
   </fieldset>
-</div>
+
  <br/>
 </body>
 </html>
