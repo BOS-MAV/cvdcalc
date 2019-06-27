@@ -24,6 +24,23 @@
     .ui-controlgroup-horizontal .ui-spinner-input {
       width: 20px;
     }
+    .btn-group button{
+    background-color:white;
+}
+body {
+  background-color: lightblue;
+}
+.jumbotron {
+ background-color: lightblue;
+}
+
+.well {
+    background-color: #f5f242;
+}
+
+.topLabel {
+    display: block;
+}
   </style>
 
   <script>
@@ -37,53 +54,67 @@
 $('.colors input[type=radio]').on('change', function() {
     console.log(this.value);
 });
+$("input:radio[name='thename']").each(function(i) {
+       this.checked = false;
+});
+
   </script>
 </head>
-<body>
+<body >
  <div class="jumbotron">
   <h1>CVD Risk Calculator</h1>
    <div class="well well-sm">
     <legend>Demographic Information</legend>
-    <div class="controlgroup">
-     <label>Current Age</label>
+     <label class = "topLabel">Current Age</label>
      <input type = "text"/>
 <div class="btn-group colors" data-toggle="buttons" >
-  <label class="btn btn-primary active"> 
-    <input type="radio" name="Sex" value="Male" autocomplete="off" checked> Male
+  <label class="btn btn-primary"> 
+    <input type="radio" name="Sex" value="Male" autocomplete="off" > Male
   </label>
   <label class="btn btn-primary">
-    <input type="radio" name="Sex" value="Female" autocomplete="off"> Female
+    <input type="radio" name="Sex" value="Female" autocomplete="off" > Female
   </label>
 
 </div>
-    </div>
-    </div>
-  </fieldset>
-  <br>
-  <fieldset>
-    <legend>Rental Car</legend>
-    <div class="controlgroup-vertical">
-      <select>
-        <option>Compact car</option>
-        <option>Midsize car</option>
-        <option>Full size car</option>
-        <option>SUV</option>
-        <option>Luxury</option>
-        <option>Truck</option>
-        <option>Van</option>
-      </select>
-      <label for="transmission-standard-v">Standard</label>
-      <input type="radio" name="transmission-v" id="transmission-standard-v">
-      <label for="transmission-automatic-v">Automatic</label>
-      <input type="radio" name="transmission-v" id="transmission-automatic-v">
-      <label for="insurance-v">Insurance</label>
-      <input type="checkbox" name="insurance" id="insurance-v">
-      <label for="vertical-spinner" class="ui-controlgroup-label"># of cars</label>
-      <input id="vertical-spinner" class="ui-spinner-input">
-      <button id="book">Book Now!</button>
-    </div>
-  </fieldset>
+  <div class="btn-group colors" data-toggle="buttons" >
+  <label class="btn btn-primary "> 
+    <input type="radio" name="Race" value="White" autocomplete="off"> White
+  </label>
+  <label class="btn btn-primary">
+    <input type="radio" name="Race" value="AfrAm" autocomplete="off"> African American
+  </label>
+    <label class="btn btn-primary">
+    <input type="radio" name="Race" value="Other" autocomplete="off"> Other
+  </label>
 
- <br/>
+
+</div>  
+    </div>
+  
+  <div class="well well-sm">
+    <legend>Medical History</legend>
+    <label class = "topLabel" for="diab">History of Diabetes?</label>
+<div class="btn-group colors" data-toggle="buttons" id ="diab" >
+  <label class="btn btn-primary"> 
+    <input type="radio" name="Diabetes" value="Yes" autocomplete="off" > Yes
+  </label>
+  <label class="btn btn-primary">
+    <input type="radio" name="Diabetes" value="No" autocomplete="off" > No
+  </label>
+
+</div>
+     <label class = "topLabel" for="smok">Smoker?</label>
+  <div class="btn-group colors" data-toggle="buttons" id ="smok" >
+  <label class="btn btn-primary "> 
+    <input type="radio" name="Smoker" value="Current" autocomplete="off"> Current
+  </label>
+  <label class="btn btn-primary">
+    <input type="radio" name="Smoker" value="AfrAm" autocomplete="off"> Never
+  </label>
+
+
+</div>  
+  </div>    
+ </div>
 </body>
 </html>
