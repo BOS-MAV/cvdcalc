@@ -30,20 +30,22 @@
             body {
                 background-color: mintcream;
             }
-            .jumbotron {
-                background-color: lightgrays;
-            }
-
             .well {
-                background-color: #f5f242;
+                background-color:#ccffff;
+                width: 100%;
             }
 
+            .well-sm{
+                width: 100%;
+            }
             .topLabel {
                 display: block;
                 text-align:center;
             }
-            .text {
-
+            }
+            .topLabel {
+                display: block;
+                text-align:left;
             }
             .block-legend {
                 text-align:center;
@@ -51,6 +53,25 @@
             .head-center {
                 text-align:center;
             }
+            .btn-bottom {
+                text-align:center;
+            }
+            .jumbotron .container{
+                text-align: center;
+            }
+            .jumbotron {
+                background-color: lightgrays;
+                height: 80%;
+                width: 100%;
+            }
+            .jumbotron .container button {
+                text-align: center;
+            }
+            .well button {
+                text-align:center;
+
+            }
+
         </style>
         <script>
             $(function () {
@@ -70,86 +91,161 @@
     </head>
     <body >
         <div class ="container">
-            <div class="jumbotron">
+            <div class="jumbotron clearfix">
                 <h1 class = "head-center">CVD Risk Calculator</h1>
                 <div class="well well-sm">
                     <legend class = "block-legend">Demographic Information</legend>
-                    <div class="btn-group" data-toggle="buttons" >
-                        <label class = "topLabel">Current Age</label>
-                        <div style="clear: both;"></div>
-                        <label class="btn text-input">
-                            <input type = "text" size = "3"/>
-                        </label>
+                    <div class ="row">
+                        <div class ="col-sm-3 col-med-4 col-lg-4">
+                            <div class="btn-group" data-toggle="buttons" >
+                                <label class = "topLabel">Current Age</label>
+                                <div style="clear: both;"></div>
+                                <label class="btn text-input">
+                                    <input type = "text" size = "3"/>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-med-4 col-lg-4">
+                            <div class="btn-group colors" data-toggle="buttons" >
+                                <label class ="topLabel">Sex</label>
+                                <div style="clear: both;"></div>
+                                <label class="btn btn-primary btn-sm"> 
+                                    <input type="radio" name="Sex" value="Male" autocomplete="off" > Male
+                                </label>
+                                <label class="btn btn-primary btn-sm">
+                                    <input type="radio" name="Sex" value="Female" autocomplete="off" > Female
+                                </label>
+                            </div>
+                        </div>
+                        <div class ="col-sm-5 col-med-5 col-lg-4">
+                            <div class="btn-group colors" data-toggle="buttons" >
+                                <label class ="topLabel">Race</label>
+                                <div style="clear: both;"></div>
+                                <label class="btn btn-primary btn-sm "> 
+                                    <input type="radio" name="Race" value="White" autocomplete="off"> White
+                                </label>
+                                <label class="btn btn-primary btn-sm">
+                                    <input type="radio" name="Race" value="AfrAm" autocomplete="off"> African American
+                                </label>
+                                <label class="btn btn-primary btn-sm">
+                                    <input type="radio" name="Race" value="Other" autocomplete="off"> Other
+                                </label>
+                            </div>
+                        </div>
                     </div>
-                    <div class="btn-group colors" data-toggle="buttons" >
-                        <label class ="topLabel">Sex</label>
-                        <div style="clear: both;"></div>
-                        <label class="btn btn-primary"> 
-                            <input type="radio" name="Sex" value="Male" autocomplete="off" > Male
-                        </label>
-                        <label class="btn btn-primary">
-                            <input type="radio" name="Sex" value="Female" autocomplete="off" > Female
-                        </label>
-                    </div>
-                    <div class="btn-group colors" data-toggle="buttons" >
-                        <label class ="topLabel">Race</label>
-                        <div style="clear: both;"></div>
-                        <label class="btn btn-primary "> 
-                            <input type="radio" name="Race" value="White" autocomplete="off"> White
-                        </label>
-                        <label class="btn btn-primary">
-                            <input type="radio" name="Race" value="AfrAm" autocomplete="off"> African American
-                        </label>
-                        <label class="btn btn-primary">
-                            <input type="radio" name="Race" value="Other" autocomplete="off"> Other
-                        </label>
-                    </div>
-                </div>
-                <div class="well well-sm">
-                    <legend class = "block-legend">Medical History</legend>            
-                    <div class="btn-group colors" data-toggle="buttons" id ="diab" >
-                        <label class = "topLabel">History of Diabetes?</label>
-                        <div style="clear: both;"></div>
-                        <label class="btn btn-primary"> 
-                            <input type="radio" name="Diabetes" value="Yes" autocomplete="off" > Yes
-                        </label>
-                        <label class="btn btn-primary">
-                            <input type="radio" name="Diabetes" value="No" autocomplete="off" > No
-                        </label>
-                    </div>
-                    <div class="btn-group colors" data-toggle="buttons" id ="smok" >
-                        <label class = "topLabel">Smoker?</label>
-                        <div style="clear: both;"></div>
-                        <label class="btn btn-primary "> 
-                            <input type="radio" name="Smoker" value="Current" autocomplete="off"> Current
-                        </label>
-                        <label class="btn btn-primary">
-                            <input type="radio" name="Smoker" value="Never" autocomplete="off"> Never
-                        </label>
-                    </div>
-                    <div class="btn-group colors" data-toggle="buttons" id ="hbp" >
-                        <label class = "topLabel">On Hypertension Treatment?</label>
-                        <div style="clear: both;"></div>
-                        <label class="btn btn-primary"> 
-                            <input type="radio" name="Hypertension" value="Yes" autocomplete="off" > Yes
-                        </label>
-                        <label class="btn btn-primary">
-                            <input type="radio" name="Hypertension" value="No" autocomplete="off" > No
-                        </label>
-                    </div>
-                    <div class="btn-group colors" data-toggle="buttons" id ="stat" >
-                        <label class = "topLabel">On a Statin?</label>
-                        <div style="clear: both;"></div>
-                        <label class="btn btn-primary"> 
-                            <input type="radio" name="Statin" value="Yes" autocomplete="off" > Yes
-                        </label>
-                        <label class="btn btn-primary">
-                            <input type="radio" name="Statin" value="No" autocomplete="off" > No
-                        </label>
-                    </div>
-                </div>
+                    <div class="well well-sm">
+                        <legend class = "block-legend">Medical History</legend>    
+                        <div class ="row">
+                            <div class ="col-sm-3 col-med-4 col-lg-4">
+                                <div class="btn-group colors" data-toggle="buttons" id ="diab" >
+                                    <label class = "topLabel">Diabetes<br/>History?</label>
+
+                                    <div style="clear: both;"></div>
+                                    <label class="btn btn-primary btn-sm"> 
+                                        <input type="radio" name="Diabetes" value="Yes" autocomplete="off" > Yes
+                                    </label>
+                                    <label class="btn btn-primary btn-sm">
+                                        <input type="radio" name="Diabetes" value="No" autocomplete="off" > No
+                                    </label>
+                                </div>
+                            </div>
+                            <div class ="col-sm-3 col-med-4 col-lg-4">
+                                <div class="btn-group colors" data-toggle="buttons" id ="smok" >
+                                    </br>
+                                    <label class = "topLabel">Smoker?</label>
+                                    <div style="clear: both;"></div>
+                                    <label class="btn btn-primary btn-sm"> 
+                                        <input type="radio" name="Smoker" value="Current" autocomplete="off"> Current
+                                    </label>
+                                    <label class="btn btn-primary btn-sm">
+                                        <input type="radio" name="Smoker" value="Never" autocomplete="off"> Never
+                                    </label>
+                                </div>
+                            </div>
+                            <div class ="col-sm-3 col-med-4 col-lg-4">
+                                <div class="btn-group colors" data-toggle="buttons" id ="hbp" >
+                                    <label class = "topLabel">Hypertension<br/>Treatment?</label>
+                                    <div style="clear: both;"></div>
+                                    <label class="btn btn-primary btn-sm"> 
+                                        <input type="radio" name="Hypertension" value="Yes" autocomplete="off" > Yes
+                                    </label>
+                                    <label class="btn btn-primary btn-sm">
+                                        <input type="radio" name="Hypertension" value="No" autocomplete="off" > No
+                                    </label>
+                                </div>
+                            </div>
+                            <div class ="col-sm-3 col-med-4 col-lg-4">
+                                <div class="btn-group colors" data-toggle="buttons" id ="stat" >
+                                    </br>
+                                    <label class = "topLabel">Statin?</label>
+                                    <div style="clear: both;"></div>
+                                    <label class="btn btn-primary btn-sm"> 
+                                        <input type="radio" name="Statin" value="Yes" autocomplete="off" > Yes
+                                    </label>
+                                    <label class="btn btn-primary btn-sm">
+                                        <input type="radio" name="Statin" value="No" autocomplete="off" > No
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="well well-sm">
+                            <legend class = "block-legend">Blood Pressure and Labs</legend>
+                            <div class ="row">
+                                <div class ="col-sm-6 col-med-6 col-lg-6">
+                                    <div class="btn-group" data-toggle="buttons" >
+                                        <label class = "topLabel">Systolic Blood Pressure (mm Hg)</label>
+                                        <div style="clear: both;"></div>
+                                        <label class="btn text-input">
+                                            <input type = "text" id = "BP_Sys" size = "4"/>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class ="col-sm-6 col-med-6 col-lg-6">
+                                    <div class="btn-group" data-toggle="buttons" >
+                                        <label class = "topLabel">Diastolic Blood Pressure (mm Hg)</label>
+                                        <div style="clear: both;"></div>
+                                        <label class="btn text-input">
+                                            <input type = "text" id = "BP_Dia" size = "4"/>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class ="row">
+                                <div class ="col-sm-4 col-med-4 col-lg-4">
+                                    <div class="btn-group" data-toggle="buttons" >
+                                        <label class = "topLabel1">Total Cholesterol<br/>(mg/dL)</label>
+                                        <div style="clear: both;"></div>
+                                        <label class="btn text-input">
+                                            <input type = "text" id = "TotChol" size = "4"/>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class ="col-sm-4 col-med-4 col-lg-4">
+                                    <div class="btn-group" data-toggle="buttons" >
+                                        <label class = "topLabel1">HDL Cholesterol<br/>(mg/dL)</label>
+                                        <div style="clear: both;"></div>
+                                        <label class="btn text-input">
+                                            <input type = "text" id = "HDL" size = "4"/>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class ="col-sm-3 col-med-4 col-lg-4">
+                                    <div class="btn-group" data-toggle="buttons" >
+                                        <label class = "topLabel1">LDL Cholesterol<br/>(mg/dl)</label>
+                                        <div style="clear: both;"></div>
+                                        <label class="btn text-input">
+                                            <input type = "text" id = "LD" size = "4"/>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center"> 
+                            <button type="submit" class="btn btn-primary btn-center text-center">Estimate Risk</button>
+                        </div>
+                    </div>  
+                </div>    
             </div>
-        </div>  
-    </div>    
-</body>
+        </div>
+    </body>
 </html>
