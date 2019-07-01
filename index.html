@@ -90,6 +90,7 @@
         </script>
     </head>
     <body >
+        <form action ="blah.html">
         <div class ="container">
             <div class="jumbotron clearfix">
                 <h1 class = "head-center">CVD Risk Calculator</h1>
@@ -101,7 +102,7 @@
                                 <label class = "topLabel">Current Age</label>
                                 <div style="clear: both;"></div>
                                 <label class="btn text-input">
-                                    <input type = "text" size = "3"/>
+                                    <input type = "text" required size = "2" maxlength ="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
                                 </label>
                             </div>
                         </div>
@@ -110,10 +111,10 @@
                                 <label class ="topLabel">Sex</label>
                                 <div style="clear: both;"></div>
                                 <label class="btn btn-primary btn-sm"> 
-                                    <input type="radio" name="Sex" value="Male" autocomplete="off" > Male
+                                    <input type="radio" name="Sex" value="Male" autocomplete="off" required > Male
                                 </label>
                                 <label class="btn btn-primary btn-sm">
-                                    <input type="radio" name="Sex" value="Female" autocomplete="off" > Female
+                                    <input type="radio" name="Sex" value="Female" autocomplete="off" required> Female
                                 </label>
                             </div>
                         </div>
@@ -240,12 +241,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-4 col-lg-4 text-center"> 
+                        <div class="col-sm-12 col-md-12 col-lg-12 text-center"> 
                             <button type="submit" class="btn btn-primary btn-center text-center">Estimate Risk</button>
                         </div>
                     </div>  
                 </div>    
             </div>
         </div>
+        </form>
     </body>
 </html>
