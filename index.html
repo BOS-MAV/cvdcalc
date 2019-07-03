@@ -5,12 +5,21 @@
         <link rel="shortcut icon" href="favicon.ico">
         <!-- jQuery and Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <title>CVD Risk Calculator</title>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <style>
+            .tooltip > .tooltip-inner {
+                background-color: #f57b42; 
+                color: #FFFFFF; 
+                border: 1px #f57b42; 
+                padding: 15px;
+                font-size: 16px;
+                width: 200px;
+            }
+
             .ui-controlgroup-vertical {
                 width: 150px;
             }
@@ -42,7 +51,7 @@
                 display: block;
                 text-align:center;
             }
-            
+
             .topLabel {
                 display: block;
                 text-align:left;
@@ -72,21 +81,27 @@
 
             }
             .error{
-	display: none;
-	margin-left: 10px;
-}		
+                display: none;
+                margin-left: 10px;
+            }		
 
-.error_show{
-	color: red;
-	margin-left: 10px;
-}
-input.invalid, textarea.invalid{
-	border: 2px solid red;
-}
+            .error_show{
+                color: red;
+                margin-left: 10px;
+            }
+            input.invalid, textarea.invalid{
+                border: 2px solid #f57b42;
+            }
 
-input.valid, textarea.valid{
-	border: 2px solid green;
-}
+            input.valid, textarea.valid{
+                border: 2px solid green;
+            }
+            .active{
+                background:red;
+            }
+            button.btn:active{
+                background:red;
+            }
         </style>
         <script>
             $(function () {
@@ -101,80 +116,243 @@ input.valid, textarea.valid{
             });
             $("input:radio[name='thename']").each(function (i) {
                 this.checked = false;
-            });     
-            $(document).ready(function(){
-            $("#txtAge").blur(function(){
-                    var input=$(this);
+            });
+            $(document).ready(function () {
+                $("#txtAge").tooltip({title: "Please enter an age between 20 and 79", placement: "bottom", trigger: "manual"});
+                $("#BP_Sys").tooltip({title: "Please enter a systolic blood pressure between 90 and 200 mm HG", placement: "right", trigger: "manual"});
+                $("#BP_Dia").tooltip({title: "Please enter a diastolic blood pressure between 60 and 130 mm HG", placement: "right", trigger: "manual"});
+                $("#TotChol").tooltip({title: "Please enter total cholesterol between 130 and 320 mg/dL", placement: "bottom", trigger: "manual"});
+                $("#HDL").tooltip({title: "Please enter HDL cholesterol between 20 and 100 mg/dL", placement: "bottom", trigger: "manual"});
+                $("#LDL").tooltip({title: "Please enter LDL cholesterol between 30 and 300 mg/dL", placement: "bottom", trigger: "manual"});
+
+                $("#txtAge").blur(function () {
+                    var input = $(this);
                     //alert(parseInt(input.val()));
-                     var error_element=$(this).next();
-                    
-                    error_element.addClass('error_show').removeClass('error');
+                    //var error_element=$(this).next();
+
+                    //error_element.addClass('error_show').removeClass('error');
                     if (parseInt(input.val()) < 20 || parseInt(input.val()) > 79)
                     {
+                        $(this).tooltip("show");
                         input.removeClass("valid").addClass("invalid");
-                       
-                      //  alert(error_element.val());
-                        error_element.removeClass("error").addClass("error_show"); 
+                        $(this).focus();
                     }
-		    else
+                    else
                     {
+                        $(this).tooltip("hide");
                         input.removeClass("invalid").addClass("valid");
-                        error_element.removeClass("error_show").addClass("error");
+
+                        //  alert(error_element.val());
+                        // error_element.removeClass("error").addClass("error_show"); 
                     }
-          });
-        });
-        
-         
+                    /* else
+                     {
+                     input.removeClass("invalid").addClass("valid");
+                     error_element.removeClass("error_show").addClass("error");
+                     }*/
+                });
+                $("#BP_Sys").blur(function () {
+                    var input = $(this);
+                    //alert(parseInt(input.val()));
+                    //var error_element=$(this).next();
+
+                    //error_element.addClass('error_show').removeClass('error');
+                    if (parseInt(input.val()) < 90 || parseInt(input.val()) > 200)
+                    {
+                        $(this).tooltip("show");
+                        input.removeClass("valid").addClass("invalid");
+                        $(this).focus();
+                    }
+                    else
+                    {
+                        $(this).tooltip("hide");
+                        input.removeClass("invalid").addClass("valid");
+                    }
+                });
+                $("#BP_Dia").blur(function () {
+                    var input = $(this);
+                    //alert(parseInt(input.val()));
+                    //var error_element=$(this).next();
+
+                    //error_element.addClass('error_show').removeClass('error');
+                    if (parseInt(input.val()) < 60 || parseInt(input.val()) > 130)
+                    {
+                        $(this).tooltip("show");
+                        input.removeClass("valid").addClass("invalid");
+                        $(this).focus();
+                    }
+                    else
+                    {
+                        $(this).tooltip("hide");
+                        input.removeClass("invalid").addClass("valid");
+                    }
+                });
+                $("#TotChol").blur(function () {
+                    var input = $(this);
+                    //alert(parseInt(input.val()));
+                    //var error_element=$(this).next();
+
+                    //error_element.addClass('error_show').removeClass('error');
+                    if (parseInt(input.val()) < 130 || parseInt(input.val()) > 320)
+                    {
+                        $(this).tooltip("show");
+                        input.removeClass("valid").addClass("invalid");
+                        $(this).focus();
+                    }
+                    else
+                    {
+                        $(this).tooltip("hide");
+                        input.removeClass("invalid").addClass("valid");
+                    }
+                });
+                $("#HDL").blur(function () {
+                    var input = $(this);
+                    //alert(parseInt(input.val()));
+                    //var error_element=$(this).next();
+
+                    //error_element.addClass('error_show').removeClass('error');
+                    if (parseInt(input.val()) < 20 || parseInt(input.val()) > 100)
+                    {
+                        $(this).tooltip("show");
+                        input.removeClass("valid").addClass("invalid");
+                        $(this).focus();
+                    }
+                    else
+                    {
+                        $(this).tooltip("hide");
+                        input.removeClass("invalid").addClass("valid");
+                    }
+                });
+                $("#LDL").blur(function () {
+                    var input = $(this);
+                    //alert(parseInt(input.val()));
+                    //var error_element=$(this).next();
+
+                    //error_element.addClass('error_show').removeClass('error');
+                    if (parseInt(input.val()) < 30 || parseInt(input.val()) > 300)
+                    {
+                        $(this).tooltip("show");
+                        input.removeClass("valid").addClass("invalid");
+                        $(this).focus();
+                    }
+                    else
+                    {
+                        $(this).tooltip("hide");
+                        input.removeClass("invalid").addClass("valid");
+                    }
+                });
+            });
+            function calc_risk() {
+                //declare a totscore variable
+
+                var totScore;
+                //declare variables to hold the rest
+                var age, sex_t, sex, race, race_t, diabetes, diabetes_t, smoker, smoker_t, hypertension, hypertension_t, statin, statin_t, systolic, diastolic,
+                        totchl, hdl, ldl;
+                age = parseInt($("#txtAge").val());
+                if (parseInt($("#BP_Sys").val()) > 130)
+                    systolic = 2;
+                else
+                    systolic = -2;
+                if (parseInt($("#BP_Dia").val()) > 90)
+                    diastolic = -2;
+                else
+                    diastolic = 2;
+                if (parseInt($("#TotChol").val()) > 200)
+                    totchl = -2;
+                else
+                    totchl = 0;
+                if (parseInt($("#HDL").val()) > 50)
+                    hdl = -1;
+                else
+                    hdl = 0;
+                if (parseInt($("#LDL").val()) < 50)
+                    ldl = -2;
+                else
+                    ldl = 0;
+                if ($("input[name = 'Sex']:checked").val() === "Male")
+                    sex = 2;
+                else
+                    sex = 1;
+                race_t = $("input[name = 'Race']:checked").val();
+                if (race_t === 'White')
+                    race = 1;
+                else if (race_t === 'African American')
+                    race = 2;
+                else
+                    race = 3;
+                if ($("input[name = 'Diabetes']:checked").val() === "Yes")
+                    diabetes = -1;
+                else
+                    diabetes = 0;
+                if ($("input[name = 'Smoker']:checked").val() === "Current")
+                    smoker = -3;
+                else
+                    smoker = 0;
+                if ($("input[name = 'Hypertension']:checked").val() === "Yes")
+                    hypertension = -3;
+                else
+                    hypertension = 0;
+                if ($("input[name = 'Statin']:checked").val() === "Yes")
+                    statin = -1;
+                else
+                    statin = 0;
+
+                totScore = age + sex + race + diabetes + smoker + hypertension + statin + systolic + diastolic + totchl + hdl + ldl;
+
+                return totScore;
+            }
+
         </script>
     </head>
     <body >
-        <form id - "myForm" method = "POST" action ="" >
-        <div class ="container">
-            <div class="jumbotron clearfix">
-                <h1 class = "head-center">CVD Risk Calculator</h1>
-                <div class="well well-sm">
-                    <legend class = "block-legend">Demographic Information</legend>
-                    <div class ="row">
-                        <div class ="col-sm-3 col-med-3 col-lg-2">
-                            <div class="btn-group" data-toggle="buttons" >
-                                <label class = "topLabel">Current Age</label>
-                          
-                                <div style="clear: both;"></div>
-                                <label class="btn text-input">
-                                    <input type = "text" size = "2" maxlength ="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');" id ="txtAge" class="form-control" validationMessage = "Enter an age between 20 and 79"/>
-                                    <span class="error">Range 20-79s</span>		
-                                </label>
+        <form id ="myForm" onsubmit ="return false" >
+            <div class ="container">
+                <div class="jumbotron clearfix">
+                    <h1 class = "head-center">CVD Risk Calculator</h1>
+                    <div class="well well-sm">
+                        <legend class = "block-legend">Demographic Information</legend>
+                        <div class ="row">
+                            <div class ="col-sm-3 col-med-3 col-lg-2">
+                                <div class="btn-group" data-toggle="buttons" >
+                                    <label class = "topLabel">Current Age</label>
+
+                                    <div style="clear: both;"></div>
+                                    <label class="btn text-input">
+                                        <input type = "text" id ="txtAge" size = "2" maxlength ="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');" required/>
+                                        <span class="error">Range 20-79s</span>		
+                                    </label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm-3 col-med-3 col-lg-3">
-                            <div class="btn-group colors" data-toggle="buttons" >
-                                <label class ="topLabel">Sex</label>
-                                <div style="clear: both;"></div>
-                                <label class="btn btn-primary btn-sm"> 
-                                    <input type="radio" name="Sex" value="Male" autocomplete="off" required > Male
-                                </label>
-                                <label class="btn btn-primary btn-sm">
-                                    <input type="radio" name="Sex" value="Female" autocomplete="off" required> Female
-                                </label>
+                            <div class="col-sm-3 col-med-3 col-lg-3">
+                                <div class="btn-group colors" data-toggle="buttons" >
+                                    <label class ="topLabel">Sex</label>
+                                    <div style="clear: both;"></div>
+                                    <label class="btn btn-primary btn-sm"> 
+                                        <input type="radio" name="Sex" value="Male" autocomplete="off" required > Male
+                                    </label>
+                                    <label class="btn btn-primary btn-sm">
+                                        <input type="radio" name="Sex" value="Female" autocomplete="off" required> Female
+                                    </label>
+                                </div>
                             </div>
-                        </div>
-                        <div class ="col-sm-6 col-med-6 col-lg-7">
-                            <div class="btn-group colors" data-toggle="buttons" >
-                                <label class ="topLabel">Race</label>
-                                <div style="clear: both;"></div>
-                                <label class="btn btn-primary btn-sm "> 
-                                    <input type="radio" name="Race" value="White" autocomplete="off"> White
-                                </label>
-                                <label class="btn btn-primary btn-sm">
-                                    <input type="radio" name="Race" value="AfrAm" autocomplete="off"> African American
-                                </label>
-                                <label class="btn btn-primary btn-sm">
-                                    <input type="radio" name="Race" value="Other" autocomplete="off"> Other
-                                </label>
+                            <div class ="col-sm-6 col-med-6 col-lg-7">
+                                <div class="btn-group colors" data-toggle="buttons" >
+                                    <label class ="topLabel">Race</label>
+                                    <div style="clear: both;"></div>
+                                    <label class="btn btn-primary btn-sm "> 
+                                        <input type="radio" name="Race" value="White" autocomplete="off" required> White
+                                    </label>
+                                    <label class="btn btn-primary btn-sm">
+                                        <input type="radio" name="Race" value="AfrAm" autocomplete="off" required> African American
+                                    </label>
+                                    <label class="btn btn-primary btn-sm">
+                                        <input type="radio" name="Race" value="Other" autocomplete="off" required> Other
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                     <div class="well well-sm">
                         <legend class = "block-legend">Medical History</legend>    
                         <div class ="row">
@@ -184,10 +362,10 @@ input.valid, textarea.valid{
 
                                     <div style="clear: both;"></div>
                                     <label class="btn btn-primary btn-sm"> 
-                                        <input type="radio" name="Diabetes" value="Yes" autocomplete="off" > Yes
+                                        <input type="radio" name="Diabetes" value="Yes" autocomplete="off" required > Yes
                                     </label>
                                     <label class="btn btn-primary btn-sm">
-                                        <input type="radio" name="Diabetes" value="No" autocomplete="off" > No
+                                        <input type="radio" name="Diabetes" value="No" autocomplete="off" required > No
                                     </label>
                                 </div>
                             </div>
@@ -197,10 +375,10 @@ input.valid, textarea.valid{
                                     <label class = "topLabel">Smoker?</label>
                                     <div style="clear: both;"></div>
                                     <label class="btn btn-primary btn-sm"> 
-                                        <input type="radio" name="Smoker" value="Current" autocomplete="off"> Current
+                                        <input type="radio" name="Smoker" value="Current" autocomplete="off" required> Current
                                     </label>
                                     <label class="btn btn-primary btn-sm">
-                                        <input type="radio" name="Smoker" value="Never" autocomplete="off"> Never
+                                        <input type="radio" name="Smoker" value="Never" autocomplete="off" required> Never
                                     </label>
                                 </div>
                             </div>
@@ -209,10 +387,10 @@ input.valid, textarea.valid{
                                     <label class = "topLabel">Hypertension<br/>Treatment?</label>
                                     <div style="clear: both;"></div>
                                     <label class="btn btn-primary btn-sm"> 
-                                        <input type="radio" name="Hypertension" value="Yes" autocomplete="off" > Yes
+                                        <input type="radio" name="Hypertension" value="Yes" autocomplete="off" required > Yes
                                     </label>
                                     <label class="btn btn-primary btn-sm">
-                                        <input type="radio" name="Hypertension" value="No" autocomplete="off" > No
+                                        <input type="radio" name="Hypertension" value="No" autocomplete="off" required > No
                                     </label>
                                 </div>
                             </div>
@@ -222,10 +400,10 @@ input.valid, textarea.valid{
                                     <label class = "topLabel">Statin?</label>
                                     <div style="clear: both;"></div>
                                     <label class="btn btn-primary btn-sm"> 
-                                        <input type="radio" name="Statin" value="Yes" autocomplete="off" > Yes
+                                        <input type="radio" name="Statin" value="Yes" autocomplete="off" required> Yes
                                     </label>
                                     <label class="btn btn-primary btn-sm">
-                                        <input type="radio" name="Statin" value="No" autocomplete="off" > No
+                                        <input type="radio" name="Statin" value="No" autocomplete="off" required > No
                                     </label>
                                 </div>
                             </div>
@@ -238,7 +416,7 @@ input.valid, textarea.valid{
                                         <label class = "topLabel">Systolic Blood Pressure (mm Hg)</label>
                                         <div style="clear: both;"></div>
                                         <label class="btn text-input">
-                                            <input type = "text" id = "BP_Sys" size = "4"/>
+                                            <input type = "text" id = "BP_Sys" size = "4" required/>
                                         </label>
                                     </div>
                                 </div>
@@ -247,7 +425,7 @@ input.valid, textarea.valid{
                                         <label class = "topLabel">Diastolic Blood Pressure (mm Hg)</label>
                                         <div style="clear: both;"></div>
                                         <label class="btn text-input">
-                                            <input type = "text" id = "BP_Dia" size = "4"/>
+                                            <input type = "text" id = "BP_Dia" size = "4" required/>
                                         </label>
                                     </div>
                                 </div>
@@ -258,7 +436,7 @@ input.valid, textarea.valid{
                                         <label class = "topLabel1">Total Cholesterol<br/>(mg/dL)</label>
                                         <div style="clear: both;"></div>
                                         <label class="btn text-input">
-                                            <input type = "text" id = "TotChol" size = "4"/>
+                                            <input type = "text" id = "TotChol" required size = "4"/>
                                         </label>
                                     </div>
                                 </div>
@@ -267,7 +445,7 @@ input.valid, textarea.valid{
                                         <label class = "topLabel1">HDL Cholesterol<br/>(mg/dL)</label>
                                         <div style="clear: both;"></div>
                                         <label class="btn text-input">
-                                            <input type = "text" id = "HDL" size = "4"/>
+                                            <input type = "text" id = "HDL" size = "4" required/>
                                         </label>
                                     </div>
                                 </div>
@@ -276,19 +454,41 @@ input.valid, textarea.valid{
                                         <label class = "topLabel1">LDL Cholesterol<br/>(mg/dl)</label>
                                         <div style="clear: both;"></div>
                                         <label class="btn text-input">
-                                            <input type = "text" id = "LD" size = "4"/>
+                                            <input type = "text" id = "LDL" size = "4" required/>
                                         </label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-12 col-lg-12 text-center"> 
-                            <button type="submit" class="btn btn-primary btn-center text-center">Estimate Risk</button>
+                            <button type="button" class="btn btn-primary btn-center text-center" data-toggle="modal" data-target="#myModal" onclick="$('#message').html('Your score is: ' + calc_risk())">Estimate Risk</button>
+
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal" role="dialog">
+                                <div class="modal-dialog">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Your Results</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <label id ="message" class="result"></label>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
                     </div>  
                 </div>    
             </div>
-           </form>
-         $("#myform").kendoValidator();
+        </form>
     </body>
 </html>
