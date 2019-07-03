@@ -124,7 +124,17 @@
                 $("#TotChol").tooltip({title: "Please enter total cholesterol between 130 and 320 mg/dL", placement: "bottom", trigger: "manual"});
                 $("#HDL").tooltip({title: "Please enter HDL cholesterol between 20 and 100 mg/dL", placement: "bottom", trigger: "manual"});
                 $("#LDL").tooltip({title: "Please enter LDL cholesterol between 30 and 300 mg/dL", placement: "bottom", trigger: "manual"});
-
+                 /*$('#myForm').on('submit', function(e){
+                    e.preventDefault();
+                    this.submit();
+                    calc_risk();
+                  });*/
+                   $('#sub').on('click', function(event) {
+                    var isvalidate = $("#myForm")[0].checkValidity();
+                        if (isvalidate) {
+                            event.preventDefault();
+                        }
+                    });
                 $("#txtAge").blur(function () {
                     var input = $(this);
                     //alert(parseInt(input.val()));
@@ -250,6 +260,7 @@
                 var age, sex_t, sex, race, race_t, diabetes, diabetes_t, smoker, smoker_t, hypertension, hypertension_t, statin, statin_t, systolic, diastolic,
                         totchl, hdl, ldl;
                 age = parseInt($("#txtAge").val());
+                alert(age);
                 if (parseInt($("#BP_Sys").val()) > 130)
                     systolic = 2;
                 else
@@ -329,10 +340,10 @@
                                     <label class ="topLabel">Sex</label>
                                     <div style="clear: both;"></div>
                                     <label class="btn btn-primary btn-sm"> 
-                                        <input type="radio" name="Sex" value="Male" autocomplete="off" required > Male
+                                        <input type="radio" name="Sex" value="Male" required > Male
                                     </label>
                                     <label class="btn btn-primary btn-sm">
-                                        <input type="radio" name="Sex" value="Female" autocomplete="off" required> Female
+                                        <input type="radio" name="Sex" value="Female" required> Female
                                     </label>
                                 </div>
                             </div>
@@ -341,13 +352,13 @@
                                     <label class ="topLabel">Race</label>
                                     <div style="clear: both;"></div>
                                     <label class="btn btn-primary btn-sm "> 
-                                        <input type="radio" name="Race" value="White" autocomplete="off" required> White
+                                        <input type="radio" name="Race" value="White" required> White
                                     </label>
                                     <label class="btn btn-primary btn-sm">
-                                        <input type="radio" name="Race" value="AfrAm" autocomplete="off" required> African American
+                                        <input type="radio" name="Race" value="AfrAm" required> African American
                                     </label>
                                     <label class="btn btn-primary btn-sm">
-                                        <input type="radio" name="Race" value="Other" autocomplete="off" required> Other
+                                        <input type="radio" name="Race" value="Other"  required> Other
                                     </label>
                                 </div>
                             </div>
@@ -365,7 +376,7 @@
                                         <input type="radio" name="Diabetes" value="Yes" autocomplete="off" required > Yes
                                     </label>
                                     <label class="btn btn-primary btn-sm">
-                                        <input type="radio" name="Diabetes" value="No" autocomplete="off" required > No
+                                        <input type="radio" name="Diabetes" value="No"  required > No
                                     </label>
                                 </div>
                             </div>
@@ -375,10 +386,10 @@
                                     <label class = "topLabel">Smoker?</label>
                                     <div style="clear: both;"></div>
                                     <label class="btn btn-primary btn-sm"> 
-                                        <input type="radio" name="Smoker" value="Current" autocomplete="off" required> Current
+                                        <input type="radio" name="Smoker" value="Ever"  required> Current
                                     </label>
                                     <label class="btn btn-primary btn-sm">
-                                        <input type="radio" name="Smoker" value="Never" autocomplete="off" required> Never
+                                        <input type="radio" name="Smoker" value="Never" required> Never
                                     </label>
                                 </div>
                             </div>
@@ -387,10 +398,10 @@
                                     <label class = "topLabel">Hypertension<br/>Treatment?</label>
                                     <div style="clear: both;"></div>
                                     <label class="btn btn-primary btn-sm"> 
-                                        <input type="radio" name="Hypertension" value="Yes" autocomplete="off" required > Yes
+                                        <input type="radio" name="Hypertension" value="Yes"  required > Yes
                                     </label>
                                     <label class="btn btn-primary btn-sm">
-                                        <input type="radio" name="Hypertension" value="No" autocomplete="off" required > No
+                                        <input type="radio" name="Hypertension" value="No"  required > No
                                     </label>
                                 </div>
                             </div>
@@ -400,10 +411,10 @@
                                     <label class = "topLabel">Statin?</label>
                                     <div style="clear: both;"></div>
                                     <label class="btn btn-primary btn-sm"> 
-                                        <input type="radio" name="Statin" value="Yes" autocomplete="off" required> Yes
+                                        <input type="radio" name="Statin" value="Yes"  required> Yes
                                     </label>
                                     <label class="btn btn-primary btn-sm">
-                                        <input type="radio" name="Statin" value="No" autocomplete="off" required > No
+                                        <input type="radio" name="Statin" value="No"  required > No
                                     </label>
                                 </div>
                             </div>
@@ -416,7 +427,7 @@
                                         <label class = "topLabel">Systolic Blood Pressure (mm Hg)</label>
                                         <div style="clear: both;"></div>
                                         <label class="btn text-input">
-                                            <input type = "text" id = "BP_Sys" size = "4" required/>
+                                            <input type = "text" id = "BP_Sys" size = "4" maxlength ="3" oninput="this.value=this.value.replace(/[^0-9]/g,'');" required/>
                                         </label>
                                     </div>
                                 </div>
@@ -425,7 +436,7 @@
                                         <label class = "topLabel">Diastolic Blood Pressure (mm Hg)</label>
                                         <div style="clear: both;"></div>
                                         <label class="btn text-input">
-                                            <input type = "text" id = "BP_Dia" size = "4" required/>
+                                            <input type = "text" id = "BP_Dia" size = "4" maxlength = "3" oninput="this.value=this.value.replace(/[^0-9]/g,'');" required/>
                                         </label>
                                     </div>
                                 </div>
@@ -436,7 +447,7 @@
                                         <label class = "topLabel1">Total Cholesterol<br/>(mg/dL)</label>
                                         <div style="clear: both;"></div>
                                         <label class="btn text-input">
-                                            <input type = "text" id = "TotChol" required size = "4"/>
+                                            <input type = "text" id = "TotChol" required size = "4" maxlength ="3" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
                                         </label>
                                     </div>
                                 </div>
@@ -445,7 +456,7 @@
                                         <label class = "topLabel1">HDL Cholesterol<br/>(mg/dL)</label>
                                         <div style="clear: both;"></div>
                                         <label class="btn text-input">
-                                            <input type = "text" id = "HDL" size = "4" required/>
+                                            <input type = "text" id = "HDL" size = "2" maxlength ="3" oninput="this.value=this.value.replace(/[^0-9]/g,'');"  required/>
                                         </label>
                                     </div>
                                 </div>
@@ -454,14 +465,15 @@
                                         <label class = "topLabel1">LDL Cholesterol<br/>(mg/dl)</label>
                                         <div style="clear: both;"></div>
                                         <label class="btn text-input">
-                                            <input type = "text" id = "LDL" size = "4" required/>
+                                            <input type = "text" id = "LDL" size = "4" maxlength ="3" oninput="this.value=this.value.replace(/[^0-9]/g,'');"  required/>
                                         </label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-12 col-lg-12 text-center"> 
-                            <button type="button" class="btn btn-primary btn-center text-center" data-toggle="modal" data-target="#myModal" onclick="$('#message').html('Your score is: ' + calc_risk())">Estimate Risk</button>
+                            <button type="button" name = "sub" class="btn btn-primary btn-center text-center" data-toggle="modal" data-target="#myModal" >Estimate Risk</button>
+                            <--"$('#message').html('Your score is: ' + calc_risk())"-->
 
 
                             <!-- Modal -->
