@@ -133,7 +133,12 @@
                     var isvalidate = $("#myForm")[0].checkValidity();
                         if (isvalidate) {
                             event.preventDefault();
+                            $('#message').html('Your score is: ' + calc_risk());
+                            $('#myModal').modal('show');
                         }
+                       
+                        
+                 
                     });
                 $("#txtAge").blur(function () {
                     var input = $(this);
@@ -260,7 +265,6 @@
                 var age, sex_t, sex, race, race_t, diabetes, diabetes_t, smoker, smoker_t, hypertension, hypertension_t, statin, statin_t, systolic, diastolic,
                         totchl, hdl, ldl;
                 age = parseInt($("#txtAge").val());
-                alert(age);
                 if (parseInt($("#BP_Sys").val()) > 130)
                     systolic = 2;
                 else
@@ -317,7 +321,7 @@
         </script>
     </head>
     <body >
-        <form id ="myForm" onsubmit ="return false" >
+        <form id ="myForm" >
             <div class ="container">
                 <div class="jumbotron clearfix">
                     <h1 class = "head-center">CVD Risk Calculator</h1>
@@ -472,8 +476,8 @@
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-12 col-lg-12 text-center"> 
-                            <button type="button" name = "sub" class="btn btn-primary btn-center text-center" data-toggle="modal" data-target="#myModal" >Estimate Risk</button>
-                            <--"$('#message').html('Your score is: ' + calc_risk())"-->
+                            <button type="button" id = "sub" class="btn btn-primary btn-center text-center" >Estimate Risk</button>
+                   
 
 
                             <!-- Modal -->
