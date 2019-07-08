@@ -118,35 +118,66 @@
                 this.checked = false;
             });
             $(document).ready(function () {
+                $("#txtAge").focus();
                 $("#txtAge").tooltip({title: "Please enter an age between 20 and 79", placement: "bottom", trigger: "manual"});
+                $("#sexMark").tooltip({title: "Please choose either Male or Female", placement: "bottom", trigger: "manual"});
                 $("#BP_Sys").tooltip({title: "Please enter a systolic blood pressure between 90 and 200 mm HG", placement: "right", trigger: "manual"});
                 $("#BP_Dia").tooltip({title: "Please enter a diastolic blood pressure between 60 and 130 mm HG", placement: "right", trigger: "manual"});
                 $("#TotChol").tooltip({title: "Please enter total cholesterol between 130 and 320 mg/dL", placement: "bottom", trigger: "manual"});
                 $("#HDL").tooltip({title: "Please enter HDL cholesterol between 20 and 100 mg/dL", placement: "bottom", trigger: "manual"});
                 $("#LDL").tooltip({title: "Please enter LDL cholesterol between 30 and 300 mg/dL", placement: "bottom", trigger: "manual"});
-                 /*$('#myForm').on('submit', function(e){
-                    e.preventDefault();
-                    this.submit();
-                    calc_risk();
-                  });*/
-                   $('#sub').on('click', function(event) {
+
+
+
+                /*$('#myForm').on('submit', function(e){
+                 e.preventDefault();
+                 this.submit();
+                 calc_risk();
+                 });*/
+                $('#sub').on('click', function (event) {
                     var isvalidate = $("#myForm")[0].checkValidity();
-                        if (isvalidate) {
-                            event.preventDefault();
-                            $('#message').html('Your score is: ' + calc_risk());
-                            $('#myModal').modal('show');
+                    if (isvalidate) {
+                        event.preventDefault();
+                        $('#message').html('Your score is: ' + calc_risk());
+                        $('#myModal').modal('show');
+                    }
+                    else
+                    {
+                        var input = $("#txtAge");
+                        if ((parseInt(input.val()) < 20 || parseInt(input.val()) > 79) || ($(input).val() === ''))
+                        {
+                            $(input).tooltip("show");
+                            input.removeClass("valid").addClass("invalid");
+                            $(input).focus();
+                          alert("")
+                         
                         }
-                       
-                        
-                 
-                    });
+                        else
+                        {
+                            $(input).tooltip("hide");
+                            input.removeClass("invalid").addClass("valid");
+                            alert("xx");
+                            if (($("input[name = 'Sex']:checked").val() != 'Male') && ($("input[name = 'Sex']:checked").val() != 'Female'))
+                            {
+                                $("#sexMark").tooltip("show");
+                                $("#Sex").focus();
+                            }
+                            else
+                                $("#sexMark").tooltip("hide");
+                        }
+                    }
+
+
+
+                });
                 $("#txtAge").blur(function () {
                     var input = $(this);
                     //alert(parseInt(input.val()));
                     //var error_element=$(this).next();
 
                     //error_element.addClass('error_show').removeClass('error');
-                    if (parseInt(input.val()) < 20 || parseInt(input.val()) > 79)
+
+                    if ((parseInt(input.val()) < 20 || parseInt(input.val()) > 79) || ($(this).val() === ''))
                     {
                         $(this).tooltip("show");
                         input.removeClass("valid").addClass("invalid");
@@ -156,6 +187,7 @@
                     {
                         $(this).tooltip("hide");
                         input.removeClass("invalid").addClass("valid");
+                        $("#Sex").focus();
 
                         //  alert(error_element.val());
                         // error_element.removeClass("error").addClass("error_show"); 
@@ -343,7 +375,7 @@
                                 <div class="btn-group colors" data-toggle="buttons" >
                                     <label class ="topLabel">Sex</label>
                                     <div style="clear: both;"></div>
-                                    <label class="btn btn-primary btn-sm"> 
+                                    <label class="btn btn-primary btn-sm" id = "sexMark"> 
                                         <input type="radio" name="Sex" value="Male" required > Male
                                     </label>
                                     <label class="btn btn-primary btn-sm">
@@ -477,7 +509,7 @@
                         </div>
                         <div class="col-sm-12 col-md-12 col-lg-12 text-center"> 
                             <button type="button" id = "sub" class="btn btn-primary btn-center text-center" >Estimate Risk</button>
-                   
+
 
 
                             <!-- Modal -->
