@@ -12,12 +12,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <title>CVD Risk Calculator</title>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <link rel="stylesheet" type ="text/css" href="cvdStyles.css"
-        <style>
-          
-        </style>
-        
-
+        <link rel="stylesheet" type ="text/css" href="cvdStyles.css">
     </head>
     <body >
         <form id ="myForm" >
@@ -78,7 +73,7 @@
                                     <label class = "topLabel">Diabetes<br/>History?</label>
 
                                     <div style="clear: both;"></div>
-                                    <label class="btn btn-primary btn-sm"> 
+                                    <label class="btn btn-primary btn-sm" id = "diabMark"> 
                                         <input type="radio" name="Diabetes" value="Yes" autocomplete="off" required > Yes
                                     </label>
                                     <label class="btn btn-primary btn-sm">
@@ -91,8 +86,8 @@
                                     </br>
                                     <label class = "topLabel">Smoker?</label>
                                     <div style="clear: both;"></div>
-                                    <label class="btn btn-primary btn-sm"> 
-                                        <input type="radio" name="Smoker" value="Ever"  required> Current
+                                    <label class="btn btn-primary btn-sm" id = "smokeMark"> 
+                                        <input type="radio" name="Smoker" value="Current"  required> Current
                                     </label>
                                     <label class="btn btn-primary btn-sm">
                                         <input type="radio" name="Smoker" value="Never" required> Never
@@ -103,7 +98,7 @@
                                 <div class="btn-group colors" data-toggle="buttons" id ="hbp" >
                                     <label class = "topLabel">Hypertension<br/>Treatment?</label>
                                     <div style="clear: both;"></div>
-                                    <label class="btn btn-primary btn-sm"> 
+                                    <label class="btn btn-primary btn-sm" id="hyperMark"> 
                                         <input type="radio" name="Hypertension" value="Yes"  required > Yes
                                     </label>
                                     <label class="btn btn-primary btn-sm">
@@ -116,7 +111,7 @@
                                     </br>
                                     <label class = "topLabel">Statin?</label>
                                     <div style="clear: both;"></div>
-                                    <label class="btn btn-primary btn-sm"> 
+                                    <label class="btn btn-primary btn-sm" id = "statinMark"> 
                                         <input type="radio" name="Statin" value="Yes"  required> Yes
                                     </label>
                                     <label class="btn btn-primary btn-sm">
