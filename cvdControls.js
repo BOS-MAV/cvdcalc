@@ -17,17 +17,21 @@ $(document).ready(function () {
     $("#sexMark").tooltip({title: "Please choose either Male or Female", placement: "bottom", trigger: "manual"});
     $("#raceMark").tooltip({title: "Please choose White, African American, Hispance or Other", placement: "bottom", trigger: "manual"});
     $("#BP_Sys").tooltip({title: "Please enter a systolic blood pressure between 90 and 200 mm HG", placement: "right", trigger: "manual"});
+    $("#diabMark").tooltip({title: "Please choose either yes or no",placement: "bottom", trigger: "manual"});
+    $("#smokeMark").tooltip({title: "Please choose either current or never",placement:"bottom",trigger:"manual"});
+    $("#hyperMark").tooltip({title: "Please choose either yes or no",placement:"bottom",trigger:"manual"});
+    $("#statinMark").tooltip({title: "Please choose either yes or no",placement:"bottom", trigger:"manual"});
     $("#BP_Dia").tooltip({title: "Please enter a diastolic blood pressure between 60 and 130 mm HG", placement: "right", trigger: "manual"});
     $("#TotChol").tooltip({title: "Please enter total cholesterol between 130 and 320 mg/dL", placement: "bottom", trigger: "manual"});
     $("#HDL").tooltip({title: "Please enter HDL cholesterol between 20 and 100 mg/dL", placement: "bottom", trigger: "manual"});
     $("#LDL").tooltip({title: "Please enter LDL cholesterol between 30 and 300 mg/dL", placement: "bottom", trigger: "manual"});
     $("#fpGluc").tooltip({title: "Please enter fasting glucose between 60 snd 150 mg/dL", placement: "bottom", trigger: "manual"});
     $("#alAmint").tooltip({title: "Please enter an ALT value between 7 and 56 IU/L", placement: "bottom", trigger: "manual"});
-    $("#creatPhos").toolTip({title: "Please enter a creatinine phosphokinase value between 20 and 200 IU/L", placement: "bottom", trigger: "manual"});
-    $("#serK").toolTip({title: "Please enter a serum potassium level between 2.6 and 6 mmol/L", placement: "bottom", trigger: "manual"});
-    $("#serCreat").toolTip({title: "Please enter a serum creatinine level between 0.5 and 1.2 mg/dL", placement: "bottom", trigger: "manual"});
-    $("#urAlb").toolTip({title: "Please enter a urine albumin value between 0 and 300 mg/DL", placement: "bottom", trigger: "manual"});
-    $("#A1C").toolTip({title: "Please enter an A1C value between 4.6 and 7.5 mmol/mol", placement: "bottom", trigger: "manual"});
+    $("#creatPhos").tooltip({title: "Please enter a creatinine phosphokinase value between 20 and 200 IU/L", placement: "bottom", trigger: "manual"});
+    $("#serK").tooltip({title: "Please enter a serum potassium level between 2.6 and 6 mmol/L", placement: "bottom", trigger: "manual"});
+    $("#serCreat").tooltip({title: "Please enter a serum creatinine level between 0.5 and 1.2 mg/dL", placement: "bottom", trigger: "manual"});
+    $("#urAlb").tooltip({title: "Please enter a urine albumin value between 0 and 300 mg/DL", placement: "bottom", trigger: "manual"});
+    $("#A1C").tooltip({title: "Please enter an A1C value between 4.6 and 7.5 mmol/mol", placement: "bottom", trigger: "manual"});
     $(".diabetesFields").hide();
     /*$('#myForm').on('submit', function(e){
      e.preventDefault();
@@ -43,8 +47,8 @@ $(document).ready(function () {
         }
         else
         {
-            if (txtAge_Val())
-           {
+           if (txtAge_Val())
+            {
                 $("#txtAge").tooltip("hide");
                 if (($("input[name = 'Sex']:checked").val() != 'Male') && ($("input[name = 'Sex']:checked").val() != 'Female'))
                 {
@@ -245,8 +249,9 @@ $(document).ready(function () {
             $(".diabetesFields").hide();
             $(".diabetesFields").removeAttr('required');
         }
+        $("#diabMark").tooltip("hide");
     })
-
+/*need to add change for other buttons since tooltip does not get hidden*/
     $("#BP_Sys").blur(function () {
         bpSys_Val();
     });
@@ -294,16 +299,18 @@ $(document).ready(function () {
 
 function txtAge_Val() {
         var input = $("#txtAge");
-        if ((parseInt(input.val()) < 20 || parseInt(input.val()) > 79) || ($(this).val() === ''))
+        if ((parseInt(input.val()) < 20 || parseInt(input.val()) > 79) || (input.val() === ''))
         {
-            $(this).tooltip("show");
+            $("#txtAge").tooltip("show");
             input.removeClass("valid").addClass("invalid");
-            $(this).focus();
+            $("#txtAge").focus();
+            return false;
         }
         else
         {
-            $(this).tooltip("hide");
+            $("#txtAge").tooltip("hide");
             input.removeClass("invalid").addClass("valid");
+            return true;
         }
 }
 function bpSys_Val() {
