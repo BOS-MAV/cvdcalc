@@ -21,9 +21,14 @@ $(document).ready(function () {
     $("#TotChol").tooltip({title: "Please enter total cholesterol between 130 and 320 mg/dL", placement: "bottom", trigger: "manual"});
     $("#HDL").tooltip({title: "Please enter HDL cholesterol between 20 and 100 mg/dL", placement: "bottom", trigger: "manual"});
     $("#LDL").tooltip({title: "Please enter LDL cholesterol between 30 and 300 mg/dL", placement: "bottom", trigger: "manual"});
+    $("#fpGluc").tooltip({title:"Please enter fasting glucose between 60 snd 150 mg/dL",placement: "bottom",trigger: "manual"});
+    $("#alAmint").tooltip({title: "Please enter an ALT value between 7 and 56 IU/L", placement: "bottom",trigger:"manual"});
+    $("#creatPhos").toolTip({title: "Please enter a creatinine phosphokinase value between 20 and 200 IU/L",placement:"bottom",trigger:"manual"});
+    $("#serK").toolTip({title: "Please enter a serum potassium level between 2.6 and 6 mmol/L",placement:"bottom",trigger:"manual"});
+    $("#serCreat").toolTip({title: "Please enter a serum creatinine level between 0.5 and 1.2 mg/dL",placement:"bottom",trigger:"manual"});
+    $("#urAlb").toolTip({title: "Please enter a urine albumin value between 0 and 300 mg/DL",placement: "bottom",trigger:"manual"});
+    $("#A1C").toolTip({title: "Please enter an A1C value between 4.6 and 7.5 mmol/mol",placement: "bottom",trigger:"manual"});
     $(".diabetesFields").hide();
-
-
     /*$('#myForm').on('submit', function(e){
      e.preventDefault();
      this.submit();
@@ -101,11 +106,17 @@ $(document).ready(function () {
                                     else
                                     {
                                         $("#statinMark").tooltip("hide");
-                                        alert(bpSys_val());
-                                        if (bpSys_val())
+                                        if (!(bpSys_val()))
                                         {
-                                            alert("moveon");
+                                            $("#bpSys").tooltip("show");
+                                            $("#bpSys").focus();
                                         }
+                                        else
+                                        {
+                                             $("#bpSys").tooltip("hide");
+                                             
+                                        }
+                                        
                                     }
                                 }
                             }
@@ -252,7 +263,7 @@ $(document).ready(function () {
 function bpSys_val() {
         var input = $("#BP_Sys");
 
-       if (parseInt(input.val()) < 90 || parseInt(input.val()) > 200)
+       if (parseInt(input.val()) < 90 || parseInt(input.val()) > 200 || input.val()==="")
     {
           
         $("#BP_Sys").tooltip("show");
@@ -267,4 +278,79 @@ function bpSys_val() {
         return true;
     }
 }
-  
+
+function bpDia_val() {
+           var input = $("#BP_Dia");
+
+       if (parseInt(input.val()) < 60 || parseInt(input.val()) > 130 || input.val()==="")
+    {
+          
+        $("#BP_Dia").tooltip("show");
+        $("#BP_Dia").removeClass("valid").addClass("invalid");
+        $("#BP_Dia").focus();
+        return false;
+    }
+    else
+    {
+        $("#BP_Dia").tooltip("hide");
+        $("#BP_Dia").removeClass("invalid").addClass("valid");
+        return true;
+    }
+}
+
+function totChol_val(){
+       var input = $("#TotChol");
+
+       if (parseInt(input.val()) < 130 || parseInt(input.val()) > 320 || input.val()==="")
+    {
+          
+        $("#TotChol").tooltip("show");
+        $("#TotChol").removeClass("valid").addClass("invalid");
+        $("#TotChol").focus();
+        return false;
+    }
+    else
+    {
+        $("#TotChol").tooltip("hide");
+        $("#TotChol").removeClass("invalid").addClass("valid");
+        return true;
+    }
+}
+
+function HDL_Val(){
+        var input = $("#HDL");
+
+       if (parseInt(input.val()) < 20 || parseInt(input.val()) > 100 || input.val()==="")
+    {
+          
+        $("#HDL").tooltip("show");
+        $("#HDL").removeClass("valid").addClass("invalid");
+        $("#HDL").focus();
+        return false;
+    }
+    else
+    {
+        $("#HDL").tooltip("hide");
+        $("#HDL").removeClass("invalid").addClass("valid");
+        return true;
+    }
+}
+
+function LDL_Val(){
+      var input = $("#LDL");
+
+       if (parseInt(input.val()) < 30 || parseInt(input.val()) > 300 || input.val()==="")
+    {
+          
+        $("#LDL").tooltip("show");
+        $("#LDL").removeClass("valid").addClass("invalid");
+        $("#LDL").focus();
+        return false;
+    }
+    else
+    {
+        $("#LDL").tooltip("hide");
+        $("#LDL").removeClass("invalid").addClass("valid");
+        return true;
+    }
+}
