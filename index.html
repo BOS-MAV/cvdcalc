@@ -192,7 +192,7 @@
                                 </div>
                                 <div class ="col-sm-4 col-med-4 col-lg-4">
                                     <div class="btn-group" data-toggle="buttons" >
-                                        <label class = "topLabel1">Creatine phosphokinase<br/>(IU/L)</label>
+                                        <label class = "topLabel">Creatinine phosphokinase<br/>(IU/L)</label>
                                         <div style="clear: both;"></div>
                                         <label class="btn text-input">
                                             <input type = "text" id = "creatPhos"  size = "4" maxlength ="3" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class ="diabetesFields"/>
@@ -206,7 +206,7 @@
                                         <label class = "topLabel1">Serum Potassium<br/>(mmol/L)</label>
                                         <div style="clear: both;"></div>
                                         <label class="btn text-input">
-                                            <input type = "text" id = "serK"  size = "4" maxlength ="3" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class ="diabetesFields"/>
+                                            <input type = "text" id = "serK"  size = "4" maxlength ="4" oninput="this.value=this.value.replace(/[^0-9.]/g,'');" class ="diabetesFields"/>
                                         </label>
                                     </div>
                                 </div>
@@ -215,7 +215,7 @@
                                         <label class = "topLabel1">Serum Creatinine<br/>(mg/dL)</label>
                                         <div style="clear: both;"></div>
                                         <label class="btn text-input">
-                                            <input type = "text" id = "serCreat"  size = "4" maxlength ="3" oninput="this.value=this.value.replace(/[^0-9]/g,'');"class ="diabetesFields" />
+                                            <input type = "text" id = "serCreat"  size = "4" maxlength ="4" oninput="this.value=this.value.replace(/[^0-9.]/g,'');"class ="diabetesFields" />
                                         </label>
                                     </div>
                                 </div>
@@ -230,6 +230,17 @@
                                 </div>
 
                             </div>
+                              <div class ="row diabetesFields">
+                                <div class ="col-sm-4 col-med-4 col-lg-4">
+                                    <div class="btn-group" data-toggle="buttons" >
+                                        <label class = "topLabel1">A1C<br/>(mmol/mol)</label>
+                                        <div style="clear: both;"></div>
+                                        <label class="btn text-input">
+                                            <input type = "text" id = "A1C"  size = "4" maxlength ="4" oninput="this.value=this.value.replace(/[^0-9.]/g,'');" class ="diabetesFields"/>
+                                        </label>
+                                    </div>
+                                </div>
+                              </div>
                             <div class="col-sm-12 col-md-12 col-lg-12 text-center"> 
                                 <button type="button" id = "sub" class="btn btn-primary btn-center text-center" >Estimate Risk</button>
 
