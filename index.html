@@ -120,158 +120,160 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="well well-sm">
-                            <legend class = "block-legend">Blood Pressure and Labs</legend>
-                            <div class ="row">
-                                <div class ="col-sm-6 col-med-6 col-lg-6">
-                                    <div class="btn-group" data-toggle="buttons" >
-                                        <label class = "topLabel">Systolic Blood Pressure (mm Hg)</label>
-                                        <div style="clear: both;"></div>
-                                        <label class="btn text-input">
-                                            <input type = "text" id = "BP_Sys" size = "4" maxlength ="3" oninput="this.value=this.value.replace(/[^0-9]/g,'');" required/>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class ="col-sm-6 col-med-6 col-lg-6">
-                                    <div class="btn-group" data-toggle="buttons" >
-                                        <label class = "topLabel">Diastolic Blood Pressure (mm Hg)</label>
-                                        <div style="clear: both;"></div>
-                                        <label class="btn text-input">
-                                            <input type = "text" id = "BP_Dia" size = "4" maxlength = "3" oninput="this.value=this.value.replace(/[^0-9]/g,'');" required/>
-                                        </label>
-                                    </div>
+                    </div>
+                    <div class="well well-sm">
+                        <legend class = "block-legend">Blood Pressure and Labs</legend>
+                        <div class ="row">
+                            <div class ="col-sm-6 col-med-6 col-lg-6">
+                                <div class="btn-group" data-toggle="buttons" >
+                                    <label class = "topLabel">Systolic Blood Pressure (mm Hg)</label>
+                                    <div style="clear: both;"></div>
+                                    <label class="btn text-input">
+                                        <input type = "text" id = "BP_Sys" size = "4" maxlength ="3" oninput="this.value=this.value.replace(/[^0-9]/g,'');" required/>
+                                    </label>
                                 </div>
                             </div>
-                            <div class ="row">
-                                <div class ="col-sm-4 col-med-4 col-lg-4">
-                                    <div class="btn-group" data-toggle="buttons" >
-                                        <label class = "topLabel1">Total Cholesterol<br/>(mg/dL)</label>
-                                        <div style="clear: both;"></div>
-                                        <label class="btn text-input">
-                                            <input type = "text" id = "TotChol" required size = "4" maxlength ="3" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class ="col-sm-4 col-med-4 col-lg-4">
-                                    <div class="btn-group" data-toggle="buttons" >
-                                        <label class = "topLabel1">HDL Cholesterol<br/>(mg/dL)</label>
-                                        <div style="clear: both;"></div>
-                                        <label class="btn text-input">
-                                            <input type = "text" id = "HDL" size = "2" maxlength ="3" oninput="this.value=this.value.replace(/[^0-9]/g,'');"  required/>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class ="col-sm-3 col-med-4 col-lg-4">
-                                    <div class="btn-group" data-toggle="buttons" >
-                                        <label class = "topLabel1">LDL Cholesterol<br/>(mg/dl)</label>
-                                        <div style="clear: both;"></div>
-                                        <label class="btn text-input">
-                                            <input type = "text" id = "LDL" size = "4" maxlength ="3" oninput="this.value=this.value.replace(/[^0-9]/g,'');"  required/>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class ="row diabetesFields">
-                                <div class ="col-sm-4 col-med-4 col-lg-4">
-                                    <div class="btn-group" data-toggle="buttons" >
-                                        <label class = "topLabel1">Fasting Plasma Glucose<br/>(mg/dL)</label>
-                                        <div style="clear: both;"></div>
-                                        <label class="btn text-input">
-                                            <input type = "text" id = "fpGluc"  size = "4" maxlength ="3" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class ="diabetesFields" />
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class ="col-sm-4 col-med-4 col-lg-4">
-                                    <div class="btn-group" data-toggle="buttons" >
-                                        <label class = "topLabel1">Alanine Aminotransferase<br/>(IU/L)</label>
-                                        <div style="clear: both;"></div>
-                                        <label class="btn text-input">
-                                            <input type = "text" id = "alAmint"  size = "4" maxlength ="3" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class ="diabetesFields"/>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class ="col-sm-4 col-med-4 col-lg-4">
-                                    <div class="btn-group" data-toggle="buttons" >
-                                        <label class = "topLabel">Creatinine phosphokinase<br/>(IU/L)</label>
-                                        <div style="clear: both;"></div>
-                                        <label class="btn text-input">
-                                            <input type = "text" id = "creatPhos"  size = "4" maxlength ="3" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class ="diabetesFields"/>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class ="row diabetesFields">
-                                <div class ="col-sm-4 col-med-4 col-lg-4">
-                                    <div class="btn-group" data-toggle="buttons" >
-                                        <label class = "topLabel1">Serum Potassium<br/>(mmol/L)</label>
-                                        <div style="clear: both;"></div>
-                                        <label class="btn text-input">
-                                            <input type = "text" id = "serK"  size = "4" maxlength ="4" oninput="this.value=this.value.replace(/[^0-9.]/g,'');" class ="diabetesFields"/>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class ="col-sm-4 col-med-4 col-lg-4">
-                                    <div class="btn-group" data-toggle="buttons" >
-                                        <label class = "topLabel1">Serum Creatinine<br/>(mg/dL)</label>
-                                        <div style="clear: both;"></div>
-                                        <label class="btn text-input">
-                                            <input type = "text" id = "serCreat"  size = "4" maxlength ="4" oninput="this.value=this.value.replace(/[^0-9.]/g,'');"class ="diabetesFields" />
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class ="col-sm-4 col-med-4 col-lg-4">
-                                    <div class="btn-group" data-toggle="buttons" >
-                                        <label class = "topLabel1">Urine Albumin<br/>(mg/dL)</label>
-                                        <div style="clear: both;"></div>
-                                        <label class="btn text-input">
-                                            <input type = "text" id = "urAlb"  size = "4" maxlength ="3" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class ="diabetesFields" />
-                                        </label>
-                                    </div>
-                                </div>
-
-                            </div>
-                              <div class ="row diabetesFields">
-                                <div class ="col-sm-4 col-med-4 col-lg-4">
-                                    <div class="btn-group" data-toggle="buttons" >
-                                        <label class = "topLabel1">A1C<br/>(mmol/mol)</label>
-                                        <div style="clear: both;"></div>
-                                        <label class="btn text-input">
-                                            <input type = "text" id = "A1C"  size = "4" maxlength ="4" oninput="this.value=this.value.replace(/[^0-9.]/g,'');" class ="diabetesFields"/>
-                                        </label>
-                                    </div>
-                                </div>
-                              </div>
-                            <div class="col-sm-12 col-md-12 col-lg-12 text-center"> 
-                                <button type="button" id = "sub" class="btn btn-primary btn-center text-center" >Estimate Risk</button>
-
-
-
-                                <!-- Modal -->
-                                <div class="modal fade" id="myModal" role="dialog">
-                                    <div class="modal-dialog">
-
-                                        <!-- Modal content-->
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title">Your Results</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <label id ="message" class="result"></label>
-
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            </div>
-                                        </div>
-
-                                    </div>
+                            <div class ="col-sm-6 col-med-6 col-lg-6">
+                                <div class="btn-group" data-toggle="buttons" >
+                                    <label class = "topLabel">Diastolic Blood Pressure (mm Hg)</label>
+                                    <div style="clear: both;"></div>
+                                    <label class="btn text-input">
+                                        <input type = "text" id = "BP_Dia" size = "4" maxlength = "3" oninput="this.value=this.value.replace(/[^0-9]/g,'');" required/>
+                                    </label>
                                 </div>
                             </div>
                         </div>
-                        <div> <br/><br/><br/>Estimation of Atherosclerotic Cardiovascular Disease Risk in Veterans <a href="https://doi.org/10.1161/circ.139.suppl_1.P373" target ="_blank">https://doi.org/10.1161/circ.139.suppl_1.P373</a></div>
-                    </div>    
-                </div>
+                        <div class ="row">
+                            <div class ="col-sm-4 col-med-4 col-lg-4">
+                                <div class="btn-group" data-toggle="buttons" >
+                                    <label class = "topLabel1">Total Cholesterol<br/>(mg/dL)</label>
+                                    <div style="clear: both;"></div>
+                                    <label class="btn text-input">
+                                        <input type = "text" id = "TotChol" required size = "4" maxlength ="3" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+                                    </label>
+                                </div>
+                            </div>
+                            <div class ="col-sm-4 col-med-4 col-lg-4">
+                                <div class="btn-group" data-toggle="buttons" >
+                                    <label class = "topLabel1">HDL Cholesterol<br/>(mg/dL)</label>
+                                    <div style="clear: both;"></div>
+                                    <label class="btn text-input">
+                                        <input type = "text" id = "HDL" size = "2" maxlength ="3" oninput="this.value=this.value.replace(/[^0-9]/g,'');"  required/>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class ="col-sm-3 col-med-4 col-lg-4">
+                                <div class="btn-group" data-toggle="buttons" >
+                                    <label class = "topLabel1">LDL Cholesterol<br/>(mg/dl)</label>
+                                    <div style="clear: both;"></div>
+                                    <label class="btn text-input">
+                                        <input type = "text" id = "LDL" size = "4" maxlength ="3" oninput="this.value=this.value.replace(/[^0-9]/g,'');"  required/>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class ="row diabetesFields">
+                            <div class ="col-sm-4 col-med-4 col-lg-4">
+                                <div class="btn-group" data-toggle="buttons" >
+                                    <label class = "topLabel1">Fasting Plasma Glucose<br/>(mg/dL)</label>
+                                    <div style="clear: both;"></div>
+                                    <label class="btn text-input">
+                                        <input type = "text" id = "fpGluc"  size = "4" maxlength ="3" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class ="diabetesFields" />
+                                    </label>
+                                </div>
+                            </div>
+                            <div class ="col-sm-4 col-med-4 col-lg-4">
+                                <div class="btn-group" data-toggle="buttons" >
+                                    <label class = "topLabel1">Alanine Aminotransferase<br/>(IU/L)</label>
+                                    <div style="clear: both;"></div>
+                                    <label class="btn text-input">
+                                        <input type = "text" id = "alAmint"  size = "4" maxlength ="3" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class ="diabetesFields"/>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class ="col-sm-4 col-med-4 col-lg-4">
+                                <div class="btn-group" data-toggle="buttons" >
+                                    <label class = "topLabel">Creatinine phosphokinase<br/>(IU/L)</label>
+                                    <div style="clear: both;"></div>
+                                    <label class="btn text-input">
+                                        <input type = "text" id = "creatPhos"  size = "4" maxlength ="3" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class ="diabetesFields"/>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class ="row diabetesFields">
+                            <div class ="col-sm-4 col-med-4 col-lg-4">
+                                <div class="btn-group" data-toggle="buttons" >
+                                    <label class = "topLabel1">Serum Potassium<br/>(mmol/L)</label>
+                                    <div style="clear: both;"></div>
+                                    <label class="btn text-input">
+                                        <input type = "text" id = "serK"  size = "4" maxlength ="4" oninput="this.value=this.value.replace(/[^0-9.]/g,'');" class ="diabetesFields"/>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class ="col-sm-4 col-med-4 col-lg-4">
+                                <div class="btn-group" data-toggle="buttons" >
+                                    <label class = "topLabel1">Serum Creatinine<br/>(mg/dL)</label>
+                                    <div style="clear: both;"></div>
+                                    <label class="btn text-input">
+                                        <input type = "text" id = "serCreat"  size = "4" maxlength ="4" oninput="this.value=this.value.replace(/[^0-9.]/g,'');"class ="diabetesFields" />
+                                    </label>
+                                </div>
+                            </div>
+                            <div class ="col-sm-4 col-med-4 col-lg-4">
+                                <div class="btn-group" data-toggle="buttons" >
+                                    <label class = "topLabel1">Urine Albumin<br/>(mg/dL)</label>
+                                    <div style="clear: both;"></div>
+                                    <label class="btn text-input">
+                                        <input type = "text" id = "urAlb"  size = "4" maxlength ="3" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class ="diabetesFields" />
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class ="row diabetesFields">
+                            <div class ="col-sm-4 col-med-4 col-lg-4">
+                                <div class="btn-group" data-toggle="buttons" >
+                                    <label class = "topLabel1">A1C<br/>(mmol/mol)</label>
+                                    <div style="clear: both;"></div>
+                                    <label class="btn text-input">
+                                        <input type = "text" id = "A1C"  size = "4" maxlength ="4" oninput="this.value=this.value.replace(/[^0-9.]/g,'');" class ="diabetesFields"/>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12 text-center"> 
+                        <button type="button" id = "sub" class="btn btn-primary btn-center text-center" >Estimate Risk</button>
+
+
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Your Results</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <label id ="message" class="result"></label>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div> <br/><br/><br/>Estimation of Atherosclerotic Cardiovascular Disease Risk in Veterans <a href="https://doi.org/10.1161/circ.139.suppl_1.P373" target ="_blank">https://doi.org/10.1161/circ.139.suppl_1.P373</a></div>
+                </div>    
+            </div>
         </form>
     </body>
 </html>
